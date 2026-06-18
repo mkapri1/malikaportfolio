@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malika Kapri — AI & Data Engineer</title>
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --surface: #141417;
+      --border: #1e1e24;
+      --accent: #7c6df9;
+      --accent2: #a78bfa;
+      --text: #e2e2e8;
+      --muted: #8b8b9a;
+      --tag-bg: #1a1a24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(13,13,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,109,249,0.12) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-content { max-width: 680px; position: relative; }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      color: var(--accent2);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: #6b5de8; text-decoration: none; color: #fff; }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover { border-color: var(--accent); text-decoration: none; color: var(--text); }
+
+    /* Sections */
+    section {
+      padding: 5rem 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 2.5rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .about-text { color: var(--muted); font-size: 1.05rem; line-height: 1.8; }
+    .about-text p + p { margin-top: 1rem; }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* Experience */
+    .timeline { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s;
+    }
+
+    .exp-card:hover { border-color: var(--accent); }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-company {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--accent2);
+    }
+
+    .exp-date {
+      font-size: 0.82rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .exp-role {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-category {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .skill-category-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.8rem;
+      color: var(--text);
+    }
+
+    /* Education */
+    .edu-grid { display: grid; gap: 1.25rem; }
+
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .edu-school { font-weight: 700; font-size: 1.05rem; color: var(--accent2); }
+    .edu-degree { font-size: 0.9rem; color: var(--muted); margin-top: 0.2rem; }
+    .edu-year { font-size: 0.82rem; color: var(--muted); white-space: nowrap; }
+
+    /* Certs */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cert-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .cert-name { font-size: 0.9rem; font-weight: 600; }
+    .cert-issuer { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
+
+    /* Contact */
+    #contact {
+      text-align: center;
+      padding-bottom: 6rem;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    /* Divider */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <span class="nav-logo">Malika Kapri</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Open to opportunities</div>
+      <h1>Hi, I'm <span>Malika Kapri</span></h1>
+      <p class="hero-subtitle">
+        AI & Data Consultant at Ernst & Young — building lakehouse architectures, data pipelines, and ML systems that move from prototype to production.
+      </p>
+      <div class="hero-cta">
+        <a href="#experience" class="btn btn-primary">View My Work</a>
+        <a href="mailto:malika.kapri02@gmail.com" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <h2>Building data systems at scale</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm an AI & Data Consultant at Ernst &amp; Young in New York, working at the intersection of data engineering, AI, and enterprise modernization. I design and ship data infrastructure — from Databricks Lakehouse architectures to production ML pipelines — that organizations rely on for critical decisions.</p>
+        <p>Currently pursuing my M.S. in Computer Science at Georgia Tech (part-time), with a background in CS from Georgia State University where I graduated with a 3.89 GPA and served as President of Girls Who Code.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-number">18M+</div>
+          <div class="stat-label">Daily transactions supported</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">60B+</div>
+          <div class="stat-label">Device lifecycle records governed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">40%</div>
+          <div class="stat-label">Efficiency gains delivered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Data sources integrated</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <h2>Where I've worked</h2>
+    <div class="timeline">
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-company">Ernst &amp; Young</span>
+          <span class="exp-date">Mar 2025 – Present · New York, NY</span>
+        </div>
+        <div class="exp-role">AI &amp; Data Consultant</div>
+        <ul class="exp-bullets">
+          <li>Partnered with architects and business stakeholders to design a Databricks Lakehouse architecture for SAP-to-Oracle ERP modernization, delivering 40+ silver-layer tables from 50+ sources and supporting consolidation of 8–10 applications across 18M+ daily transactions.</li>
+          <li>Developed silver-layer dbt models on Databricks using layered data modeling across 15+ features; diagnosed a 1B+ row performance bottleneck and redesigned materialization strategy, reducing build time from ~1 hour to minutes.</li>
+          <li>Designed and deployed Databricks workflows using Asset Bundles (DABs), YAML, and CI/CD pipelines, operationalizing 15+ data products through automated job orchestration and scheduled refreshes.</li>
+          <li>Improved enterprise data quality by implementing dbt/Python testing frameworks, custom validations, and data contracts integrated with Unity Catalog and Collibra for trusted self-service analytics across 60B+ device lifecycle records.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-company">Elevance Health</span>
+          <span class="exp-date">May 2024 – Feb 2025 · Atlanta, GA</span>
+        </div>
+        <div class="exp-role">Product Owner</div>
+        <ul class="exp-bullets">
+          <li>Owned product delivery for an AI-powered call-center agent desktop, defining 15+ user stories with acceptance criteria and translating business requirements into LLM-enabled workflows that improved agent efficiency.</li>
+          <li>Led 5+ stakeholder demos and sprint reviews across engineering, business, and customer experience teams, aligning roadmap priorities around usability, automation, and AI-driven recommendations.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-company">Rosenblatt AI</span>
+          <span class="exp-date">Aug 2024 – Dec 2024 · Remote</span>
+        </div>
+        <div class="exp-role">Machine Learning Engineer</div>
+        <ul class="exp-bullets">
+          <li>Built an AI-powered image similarity search system for a Web3 client, contributing to data ingestion, CLIP-based model inference, and a user-facing search application to improve content discoverability.</li>
+          <li>Deployed a CLIP-based retrieval model on AWS (SageMaker, Lambda) and productionized workflows using MLflow and Docker; improved artist discoverability via UMAP clustering and GPT-4o-mini for GenAI style labeling.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-company">ModelN</span>
+          <span class="exp-date">Jan 2024 – May 2024 · Remote</span>
+        </div>
+        <div class="exp-role">AI Engineer Intern</div>
+        <ul class="exp-bullets">
+          <li>Designed and tested GenAI prompts for a customer-facing knowledge chatbot using Azure OpenAI and LangChain, improving response accuracy by 20% and integrated into customer support tooling.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-company">Ernst &amp; Young</span>
+          <span class="exp-date">Jun 2023 – Aug 2023 · New York, NY</span>
+        </div>
+        <div class="exp-role">Technology Consulting Intern</div>
+        <ul class="exp-bullets">
+          <li>Built a financial scenario-modeling tool used directly by the client CIO, translating complex IT spend data into an executive-ready interface and increasing workstream efficiency by 40%.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <span class="exp-company">NCR Corporation</span>
+          <span class="exp-date">May 2022 – Aug 2022 · Atlanta, GA</span>
+        </div>
+        <div class="exp-role">Software Engineer Intern</div>
+        <ul class="exp-bullets">
+          <li>Developed a full-stack React &amp; Django web app on GCP to streamline product lifecycle management, saving 2,000+ hours annually and improving productivity by 20% through automation and PostgreSQL data cleanup.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="section-label">Skills</div>
+    <h2>Technologies I work with</h2>
+    <div class="skills-grid">
+
+      <div class="skill-category">
+        <div class="skill-category-title">Data Engineering</div>
+        <div class="tags">
+          <span class="tag">Apache Spark (PySpark)</span>
+          <span class="tag">dbt</span>
+          <span class="tag">Delta Lake</span>
+          <span class="tag">ETL Pipelines</span>
+          <span class="tag">Databricks</span>
+          <span class="tag">Unity Catalog</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-category-title">Cloud & Infrastructure</div>
+        <div class="tags">
+          <span class="tag">AWS SageMaker</span>
+          <span class="tag">AWS Lambda</span>
+          <span class="tag">GCP</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">Docker</span>
+          <span class="tag">MLflow</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-category-title">AI & Machine Learning</div>
+        <div class="tags">
+          <span class="tag">LLMs</span>
+          <span class="tag">Azure OpenAI</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">CLIP</span>
+          <span class="tag">GPT-4o</span>
+          <span class="tag">GenAI Prompting</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-category-title">Databases & Warehouses</div>
+        <div class="tags">
+          <span class="tag">Snowflake</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Collibra</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-category-title">Languages</div>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">YAML</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-category-title">Frontend</div>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">Django</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">REST APIs</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- Education -->
+  <section id="education">
+    <div class="section-label">Education</div>
+    <h2>Academic background</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div>
+          <div class="edu-school">Georgia Institute of Technology</div>
+          <div class="edu-degree">M.S. Computer Science (Part-time)</div>
+        </div>
+        <div class="edu-year">Expected 2027</div>
+      </div>
+      <div class="edu-card">
+        <div>
+          <div class="edu-school">Georgia State University</div>
+          <div class="edu-degree">B.S. Computer Science · 3.89 GPA · Honors · President's List · President of Girls Who Code</div>
+        </div>
+        <div class="edu-year">Graduated</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top: 3rem; margin-bottom: 0.5rem;">Certifications</div>
+    <h2 style="margin-bottom: 1.5rem;">Credentials</h2>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🧱</div>
+        <div>
+          <div class="cert-name">Databricks Data Analyst Associate</div>
+          <div class="cert-issuer">Databricks</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">☁️</div>
+        <div>
+          <div class="cert-name">Microsoft Azure AI</div>
+          <div class="cert-issuer">Microsoft</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">⚡</div>
+        <div>
+          <div class="cert-name">Databricks Lakeflow Badge</div>
+          <div class="cert-issuer">Databricks</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🔧</div>
+        <div>
+          <div class="cert-name">Databricks Data Engineer Badge</div>
+          <div class="cert-issuer">Databricks</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <h2>Let's connect</h2>
+    <div class="contact-card">
+      <p style="color: var(--muted); margin-bottom: 0.5rem;">Currently at Ernst &amp; Young and open to conversations about data engineering, AI, and consulting opportunities.</p>
+      <div class="contact-links">
+        <a href="mailto:malika.kapri02@gmail.com" class="btn btn-primary">malika.kapri02@gmail.com</a>
+        <a href="tel:+14708150131" class="btn btn-secondary">+1 (470) 815-0131</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Malika Kapri · Built with HTML & CSS</p>
+  </footer>
+
+</body>
+</html>
