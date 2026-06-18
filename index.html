@@ -62,7 +62,7 @@ nav.scrolled{background:rgba(6,7,10,.85);backdrop-filter:blur(20px);border-botto
 @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
 .hero-name{font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:.75rem}
 .hero-name .hi{color:var(--muted);font-weight:400}
-.hero-name .name{background:linear-gradient(135deg,#c7d2fe 0%,#818cf8 50%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-name .name{color:var(--accent2)}
 .hero-title{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);margin-bottom:1.75rem;font-weight:400}
 .hero-title .typed-wrapper{display:inline;color:var(--accent2);font-weight:600}
 #typed::after{content:'|';animation:blink .75s step-end infinite;color:var(--accent)}
@@ -76,7 +76,7 @@ nav.scrolled{background:rgba(6,7,10,.85);backdrop-filter:blur(20px);border-botto
 .btn-ghost:hover{border-color:var(--accent);background:var(--glow2);color:var(--text);text-decoration:none;transform:translateY(-1px)}
 .hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--border);flex-wrap:wrap}
 .stat{text-align:left}
-.stat-n{font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,var(--accent2),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-n{font-size:1.6rem;font-weight:800;color:var(--accent2)}
 .stat-l{font-size:.75rem;color:var(--muted2);letter-spacing:.04em;text-transform:uppercase;margin-top:.1rem}
 
 /* ---------- SCROLL INDICATOR ---------- */
@@ -108,7 +108,7 @@ h2.section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spaci
 .about-right{display:flex;flex-direction:column;gap:1.25rem}
 .impact-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color .25s,transform .25s}
 .impact-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.impact-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--accent2),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.2rem}
+.impact-num{font-size:2rem;font-weight:800;color:var(--accent2);margin-bottom:.2rem}
 .impact-desc{font-size:.82rem;color:var(--muted2);line-height:1.5}
 .impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 
@@ -151,7 +151,7 @@ h2.section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spaci
 .skill-name{color:var(--text)}
 .skill-pct{color:var(--muted2)}
 .skill-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
-.skill-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0%;transition:width 1s cubic-bezier(.4,0,.2,1)}
+.skill-fill{height:100%;border-radius:2px;background:var(--accent);width:0%;transition:width 1s cubic-bezier(.4,0,.2,1)}
 .skill-tags-display{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border)}
 
 /* ---------- PROJECTS / HIGHLIGHTS ---------- */
@@ -201,7 +201,7 @@ h2.section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spaci
 footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-between;align-items:center;color:var(--muted2);font-size:.78rem;flex-wrap:wrap;gap:.75rem}
 
 /* ---------- PROGRESS BAR ---------- */
-#progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:200;transition:width .1s linear;width:0%}
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:200;transition:width .1s linear;width:0%}
 
 /* ---------- MOBILE ---------- */
 @media(max-width:768px){
@@ -231,7 +231,8 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
     <li><a href="#about" data-section="about">About</a></li>
     <li><a href="#experience" data-section="experience">Experience</a></li>
     <li><a href="#skills" data-section="skills">Skills</a></li>
-    <li><a href="#highlights" data-section="highlights">Work</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="interests.html">Interests</a></li>
     <li><a href="#education" data-section="education">Education</a></li>
     <li><a href="#contact" data-section="contact">Contact</a></li>
   </ul>
@@ -268,12 +269,6 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
       <a href="#experience" class="btn btn-primary">View my work</a>
       <a href="mailto:malika.kapri02@gmail.com" class="btn btn-ghost">Say hello</a>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-n" data-count="18">0</div><div class="stat-l">M+ daily transactions</div></div>
-      <div class="stat"><div class="stat-n" data-count="60">0</div><div class="stat-l">B+ records governed</div></div>
-      <div class="stat"><div class="stat-n" data-count="40">0</div><div class="stat-l">% efficiency gains</div></div>
-      <div class="stat"><div class="stat-n" data-count="50">0</div><div class="stat-l">+ data sources integrated</div></div>
-    </div>
   </div>
   <div class="scroll-indicator">
     <div class="mouse"><div class="wheel"></div></div>
@@ -286,31 +281,31 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
   <div class="section">
     <div class="section-header reveal">
       <div class="section-tag">About</div>
-      <h2 class="section-title">Building data systems at scale</h2>
+      <h2 class="section-title">Hi, I'm Malika.</h2>
     </div>
     <div class="about-grid">
       <div class="about-text reveal-l">
-        <p>I'm an <span class="about-highlight">AI & Data Consultant at Ernst & Young</span> in New York City, working at the intersection of data engineering, machine learning, and enterprise modernization. I design and ship infrastructure that organizations rely on for mission-critical decisions.</p>
-        <p>My work spans the full stack — from designing <span class="about-highlight">Databricks Lakehouse architectures</span> for Fortune 500 ERP modernizations to deploying <span class="about-highlight">CLIP-based ML models on AWS</span> to building AI-powered call-center products.</p>
-        <p>I'm currently pursuing my <span class="about-highlight">M.S. in Computer Science at Georgia Tech</span> (part-time), and I hold a B.S. from Georgia State University where I graduated with a 3.89 GPA and served as President of Girls Who Code.</p>
+        <p>I love anything <span class="about-highlight">data</span> — the way it tells stories, surfaces patterns, and drives decisions that actually matter. I'm drawn to the intersection of <span class="about-highlight">data, technology, and business</span>, and I get genuinely excited by problems that sit right at that crossroads.</p>
+        <p>I'm especially interested in <span class="about-highlight">healthcare</span> and how data can be used to improve outcomes, reduce inefficiency, and ultimately help people. Whether it's building a lakehouse architecture for a Fortune 500 or deploying an ML model from scratch, I care deeply about making the technical work translate into real-world impact.</p>
+        <p>I love solving hard technical problems — the kind where the solution isn't obvious, where you have to dig in, rethink assumptions, and design something that actually holds up at scale. Currently at <span class="about-highlight">Ernst & Young</span> in New York and pursuing my M.S. in CS at Georgia Tech, I'm always looking for the next challenge where data meets something that matters.</p>
       </div>
       <div class="about-right reveal">
         <div class="impact-grid">
           <div class="impact-card">
-            <div class="impact-num">18M+</div>
-            <div class="impact-desc">Daily transactions supported across 8–10 applications</div>
+            <div class="impact-num">Data ∩ Business</div>
+            <div class="impact-desc">I bridge the gap between technical systems and real business decisions</div>
           </div>
           <div class="impact-card">
-            <div class="impact-num">60B+</div>
-            <div class="impact-desc">Device lifecycle records governed via Unity Catalog</div>
+            <div class="impact-num">Healthcare</div>
+            <div class="impact-desc">Passionate about using data to improve outcomes and reduce inefficiency in health</div>
           </div>
           <div class="impact-card">
-            <div class="impact-num">1hr→min</div>
-            <div class="impact-desc">dbt build time after redesigning materialization strategy</div>
+            <div class="impact-num">Scale</div>
+            <div class="impact-desc">Designed systems handling 18M+ daily transactions and 60B+ records</div>
           </div>
           <div class="impact-card">
-            <div class="impact-num">2,000+</div>
-            <div class="impact-desc">Hours saved annually with full-stack automation at NCR</div>
+            <div class="impact-num">Builder</div>
+            <div class="impact-desc">From idea to production — ML pipelines, lakehouses, AI products</div>
           </div>
         </div>
       </div>
@@ -476,63 +471,39 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
   </div>
 </section>
 
-<!-- HIGHLIGHTS -->
+<!-- PROJECTS TEASER -->
 <section id="highlights">
   <div class="section">
     <div class="section-header reveal">
-      <div class="section-tag">Work Highlights</div>
-      <h2 class="section-title">Impact I've driven</h2>
+      <div class="section-tag">Projects</div>
+      <h2 class="section-title">Things I've built</h2>
     </div>
-    <div class="projects-grid">
-
+    <div class="projects-teaser reveal">
+      <p class="teaser-desc">From lakehouse architectures to ML-powered search systems — a collection of the technical work I'm most proud of.</p>
+      <a href="projects.html" class="btn btn-primary" style="margin-top:1.5rem;display:inline-flex">View all projects →</a>
+    </div>
+    <div class="projects-grid" style="margin-top:2.5rem">
       <div class="project-card reveal">
         <div class="project-icon">🏗️</div>
         <div class="project-title">ERP Lakehouse Architecture</div>
-        <div class="project-desc">Designed a Databricks Lakehouse for a Fortune 500 SAP-to-Oracle migration — 40+ silver-layer tables from 50+ sources supporting consolidation of 8–10 applications.</div>
+        <div class="project-desc">Databricks Lakehouse for a Fortune 500 SAP-to-Oracle migration — 40+ silver-layer tables from 50+ sources, 18M+ daily transactions.</div>
         <div class="project-metric">↑ 18M+ daily transactions</div>
-        <div class="exp-tags"><span class="tag">Databricks</span><span class="tag">dbt</span><span class="tag">Delta Lake</span><span class="tag">ERP</span></div>
+        <div class="exp-tags"><span class="tag">Databricks</span><span class="tag">dbt</span><span class="tag">Delta Lake</span></div>
       </div>
-
       <div class="project-card reveal">
         <div class="project-icon">⚡</div>
         <div class="project-title">1B+ Row Query Optimization</div>
-        <div class="project-desc">Diagnosed a critical dbt materialization bottleneck on a 1B+ row dataset and redesigned the strategy — slashing build time from ~1 hour to minutes.</div>
+        <div class="project-desc">Diagnosed a dbt materialization bottleneck on a 1B+ row dataset and redesigned the strategy — build time from ~1 hour to minutes.</div>
         <div class="project-metric">↓ ~55x faster builds</div>
         <div class="exp-tags"><span class="tag">PySpark</span><span class="tag">dbt</span><span class="tag">Performance</span></div>
       </div>
-
       <div class="project-card reveal">
         <div class="project-icon">🔍</div>
         <div class="project-title">AI Image Similarity Search</div>
-        <div class="project-desc">Built a CLIP-based image search system for a Web3 platform — AWS SageMaker + Lambda deployment, UMAP clustering, and GPT-4o style labeling for artist discoverability.</div>
+        <div class="project-desc">CLIP-based image search on AWS SageMaker + Lambda with UMAP clustering and GPT-4o style labeling for a Web3 platform.</div>
         <div class="project-metric">↑ Content discoverability</div>
         <div class="exp-tags"><span class="tag">CLIP</span><span class="tag">SageMaker</span><span class="tag">MLflow</span></div>
       </div>
-
-      <div class="project-card reveal">
-        <div class="project-icon">🤖</div>
-        <div class="project-title">AI Call-Center Desktop</div>
-        <div class="project-desc">Owned product delivery for an LLM-powered agent desktop at Elevance Health — defined 15+ user stories, led cross-functional demos, and shipped AI-driven recommendation workflows.</div>
-        <div class="project-metric">↑ Agent efficiency</div>
-        <div class="exp-tags"><span class="tag">LLMs</span><span class="tag">Product</span><span class="tag">Agile</span></div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-icon">💬</div>
-        <div class="project-title">Enterprise Knowledge Chatbot</div>
-        <div class="project-desc">Designed and iterated GenAI prompts for a customer-facing support chatbot using Azure OpenAI and LangChain — 20% accuracy improvement integrated into live ticket resolution.</div>
-        <div class="project-metric">↑ 20% response accuracy</div>
-        <div class="exp-tags"><span class="tag">Azure OpenAI</span><span class="tag">LangChain</span></div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-icon">📊</div>
-        <div class="project-title">CIO Financial Modeling Tool</div>
-        <div class="project-desc">Built a scenario-modeling interface used directly by a Fortune 500 CIO to visualize complex IT spend data — increased workstream efficiency by 40%.</div>
-        <div class="project-metric">↑ 40% efficiency</div>
-        <div class="exp-tags"><span class="tag">Data Analysis</span><span class="tag">React</span></div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -631,7 +602,7 @@ window.addEventListener('scroll',()=>{
 });
 
 // Typed effect
-const phrases=['AI & Data Consultant','Data Engineer','ML Engineer','LLM Builder'];
+const phrases=['AI & Data Consultant','Solutions Engineer','Data Engineer'];
 let pi=0,ci=0,del=false,text='';
 const el=document.getElementById('typed');
 function type(){
