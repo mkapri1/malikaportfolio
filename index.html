@@ -221,18 +221,34 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
 .lego-in:nth-child(5){animation-delay:.58s}
 .lego-in:nth-child(6){animation-delay:.68s}
 
+/* ---------- LEGO BLOCK DECORATIONS ---------- */
+.lego-blocks{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.lego-block{position:absolute;border-radius:6px;opacity:.18;animation:floatBlock 6s ease-in-out infinite}
+@keyframes floatBlock{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-14px) rotate(calc(var(--r) + 6deg))}}
+
+/* ---------- HIGHLIGHT CHIP ---------- */
+.chip{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--pink));color:#fff;border-radius:6px;padding:.1rem .5rem;font-weight:700;font-size:.95em}
+.chip-teal{background:linear-gradient(135deg,var(--teal),#6c47ff)}
+
+/* ---------- SECTION ACCENT ---------- */
+.section-accent{display:flex;gap:.5rem;margin-bottom:1.5rem}
+.dot-block{width:12px;height:12px;border-radius:3px}
+.db-purple{background:var(--accent)}
+.db-pink{background:var(--pink)}
+.db-teal{background:var(--teal)}
+
 /* ---------- MOBILE ---------- */
 @media(max-width:768px){
+  .hero-row{flex-direction:column-reverse!important;gap:2rem!important;text-align:center}
+  .hero-row .hero-content{max-width:100%!important}
+  .hero-row .hero-actions{justify-content:center}
+  .hero-row img{width:140px!important;height:140px!important}
   .about-grid,.skills-layout,.edu-cert-grid{grid-template-columns:1fr;gap:2.5rem}
-  .about-photo{width:120px;height:120px}
   .skill-panel{position:static}
-  .hero-stats{gap:1.5rem}
   .nav-links{display:none}
   .hamburger{display:flex}
-  .impact-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:480px){
-  .impact-grid{grid-template-columns:1fr}
   #cursor,#cursor-ring{display:none}
 }
 </style>
@@ -268,8 +284,16 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
     <div class="hero-orb orb1"></div>
     <div class="hero-orb orb2"></div>
     <div class="hero-orb orb3"></div>
+    <div class="lego-blocks">
+      <div class="lego-block" style="width:28px;height:28px;background:var(--accent);top:18%;right:12%;--r:-12deg;animation-delay:0s"></div>
+      <div class="lego-block" style="width:18px;height:18px;background:var(--pink);top:55%;right:25%;--r:20deg;animation-delay:1s"></div>
+      <div class="lego-block" style="width:22px;height:22px;background:var(--teal);top:30%;left:8%;--r:8deg;animation-delay:2s"></div>
+      <div class="lego-block" style="width:14px;height:14px;background:var(--accent);bottom:25%;left:20%;--r:-20deg;animation-delay:.5s"></div>
+      <div class="lego-block" style="width:32px;height:12px;background:var(--pink);bottom:35%;right:8%;--r:15deg;animation-delay:1.5s"></div>
+      <div class="lego-block" style="width:16px;height:16px;background:var(--teal);top:70%;left:5%;--r:-5deg;animation-delay:2.5s"></div>
+    </div>
   </div>
-  <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:3rem;width:100%;max-width:1100px">
+  <div class="hero-row" style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:3rem;width:100%;max-width:1100px">
     <div class="hero-content" style="max-width:600px;flex:1">
       <div class="hero-eyebrow lego-in">
         <span class="eyebrow-dot"></span>
@@ -304,10 +328,11 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
 <section id="about">
   <div class="section">
     <div class="section-header reveal">
+      <div class="section-accent"><div class="dot-block db-purple"></div><div class="dot-block db-pink"></div><div class="dot-block db-teal"></div></div>
       <div class="section-tag">About</div>
       <h2 class="section-title">Hi, I'm Malika.</h2>
     </div>
-    <div class="about-text reveal-l" style="max-width:700px">
+    <div class="about-text reveal-l" style="max-width:860px">
       <p>I love anything <span class="about-highlight">data</span> — the way it tells stories, surfaces patterns, and turns complexity into clarity. I'm drawn to the intersection of <span class="about-highlight">data, technology, and business</span>, and I get genuinely excited by problems that sit right at that crossroads.</p>
       <p>Whether it's designing a lakehouse from scratch, debugging a 1B+ row pipeline, or translating a messy business requirement into something that actually ships — I love the technical depth and the human side equally. I care about making the work land.</p>
       <p>Currently at <span class="about-highlight">Ernst & Young</span> in New York and pursuing my M.S. in CS at Georgia Tech. I'm especially interested in roles where I can bridge the gap between powerful technology and the people who use it — <span class="about-highlight">Solutions Engineering, Forward Deployed Engineering, and AI & Data</span>.</p>
@@ -319,6 +344,7 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
 <section id="experience">
   <div class="section">
     <div class="section-header reveal">
+      <div class="section-accent"><div class="dot-block db-pink"></div><div class="dot-block db-purple"></div><div class="dot-block db-teal"></div></div>
       <div class="section-tag">Experience</div>
       <h2 class="section-title">Where I've worked</h2>
     </div>
@@ -433,6 +459,7 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
 <section id="skills">
   <div class="section">
     <div class="section-header reveal">
+      <div class="section-accent"><div class="dot-block db-teal"></div><div class="dot-block db-purple"></div><div class="dot-block db-pink"></div></div>
       <div class="section-tag">Skills</div>
       <h2 class="section-title">Technologies I work with</h2>
     </div>
@@ -477,6 +504,7 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
 <section id="highlights">
   <div class="section">
     <div class="section-header reveal">
+      <div class="section-accent"><div class="dot-block db-purple"></div><div class="dot-block db-teal"></div><div class="dot-block db-pink"></div></div>
       <div class="section-tag">Projects</div>
       <h2 class="section-title">Things I've built</h2>
     </div>
@@ -514,6 +542,7 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
 <section id="education">
   <div class="section">
     <div class="section-header reveal">
+      <div class="section-accent"><div class="dot-block db-pink"></div><div class="dot-block db-teal"></div><div class="dot-block db-purple"></div></div>
       <div class="section-tag">Education & Credentials</div>
       <h2 class="section-title">Academic background</h2>
     </div>
