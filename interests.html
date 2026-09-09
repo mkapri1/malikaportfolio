@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Interests — Malika Kapri</title>
+<title>Community — Malika Kapri</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -40,40 +40,59 @@ h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-hei
 
 .content{padding:0 clamp(1.5rem,5vw,4rem) 6rem;max-width:1100px;margin:0 auto}
 
-/* Interest blocks */
-.interest-block{margin-bottom:5rem}
-.block-label{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem}
+/* Section heading */
+.block-label{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
 .block-label::before{content:'';width:20px;height:1px;background:var(--accent)}
-.block-title{font-size:1.4rem;font-weight:700;margin-bottom:.75rem;letter-spacing:-.01em}
-.block-text{color:var(--muted);font-size:.97rem;line-height:1.85;max-width:640px;margin-bottom:1.75rem}
+.block-title{font-size:1.5rem;font-weight:800;letter-spacing:-.01em;margin-bottom:.75rem}
+.block-text{color:var(--muted);font-size:.97rem;line-height:1.85;max-width:660px}
 .block-text p+p{margin-top:.9rem}
 
+/* Initiative cards */
+.initiative-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:all .3s;position:relative;overflow:hidden}
+.initiative-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);opacity:0;transition:opacity .3s}
+.initiative-card:hover{border-color:rgba(129,140,248,.3);transform:translateY(-2px)}
+.initiative-card:hover::before{opacity:1}
+.initiative-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem}
+.initiative-icon{width:44px;height:44px;border-radius:10px;background:rgba(129,140,248,.08);border:1px solid rgba(129,140,248,.15);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.initiative-meta{}
+.initiative-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.15rem}
+.initiative-role{font-size:.78rem;color:var(--accent2)}
+.initiative-desc{font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+.initiative-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--accent2);border:1px solid var(--border2);border-radius:6px;padding:.3rem .75rem;transition:all .2s}
+.initiative-link:hover{border-color:var(--accent);background:var(--glow2);text-decoration:none}
+.initiative-link+.initiative-link{margin-left:.5rem}
+
+/* Grid layouts */
+.initiatives-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;margin-top:2rem}
+
+/* Tags */
+.itags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.itag{font-size:.75rem;padding:.25rem .7rem;background:var(--tag);border:1px solid var(--tag-border);border-radius:100px;color:var(--muted)}
+
+/* Fun section */
+.fun-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
+.fun-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:all .3s}
+.fun-card:hover{border-color:rgba(129,140,248,.2);transform:translateY(-2px)}
+.fun-icon{font-size:1.8rem;margin-bottom:.9rem}
+.fun-title{font-size:1rem;font-weight:700;margin-bottom:.5rem}
+.fun-desc{font-size:.87rem;color:var(--muted);line-height:1.75}
+.fun-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:.9rem;font-size:.8rem;color:var(--accent2);border:1px solid var(--border2);border-radius:6px;padding:.3rem .75rem;transition:all .2s}
+.fun-link:hover{border-color:var(--accent);background:var(--glow2);text-decoration:none}
+
 /* Photo grid */
-.photo-grid{display:grid;gap:1rem}
-.photo-grid.cols-3{grid-template-columns:repeat(3,1fr)}
-.photo-grid.cols-2{grid-template-columns:repeat(2,1fr)}
-.photo-grid.cols-4{grid-template-columns:repeat(4,1fr)}
-.photo-slot{border-radius:12px;overflow:hidden;background:var(--surface);border:1px solid var(--border);position:relative;cursor:pointer;transition:all .3s}
+.photo-grid{display:grid;gap:1rem;margin-top:1.5rem}
+.photo-grid.g3{grid-template-columns:repeat(3,1fr)}
+.photo-grid.g2{grid-template-columns:repeat(2,1fr)}
+.photo-slot{border-radius:12px;overflow:hidden;background:var(--surface);border:1px solid var(--border);transition:all .3s;position:relative}
 .photo-slot:hover{border-color:rgba(129,140,248,.3);transform:translateY(-2px)}
 .photo-slot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
 .photo-slot:hover img{transform:scale(1.04)}
-.photo-slot .placeholder{width:100%;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--muted2);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase}
-.photo-slot .placeholder-icon{font-size:1.8rem;opacity:.4}
-.photo-slot.tall .placeholder{aspect-ratio:3/4}
-.photo-slot.wide .placeholder{aspect-ratio:16/9}
-.photo-slot.square .placeholder{aspect-ratio:1}
-.photo-caption{position:absolute;bottom:0;left:0;right:0;padding:.6rem .9rem;background:rgba(6,7,10,.75);backdrop-filter:blur(8px);font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .3s}
-.photo-slot:hover .photo-caption{opacity:1}
+.photo-slot .ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;color:var(--muted2);font-size:.73rem;letter-spacing:.06em;text-transform:uppercase;padding:2rem 1rem}
+.photo-slot.sq .ph{aspect-ratio:1}
+.photo-slot.port .ph{aspect-ratio:3/4}
+.photo-slot.land .ph{aspect-ratio:16/9}
+.ph-icon{font-size:1.5rem;opacity:.3}
 
-/* Add photo hint */
-.add-hint{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--muted2);margin-top:.75rem}
-.add-hint::before{content:'↑';color:var(--accent);font-size:.85rem}
-
-/* Interest tags */
-.interest-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
-.itag{font-size:.8rem;padding:.35rem .85rem;background:var(--tag);border:1px solid var(--tag-border);border-radius:100px;color:var(--muted)}
-
-/* Divider */
 .divider{border:none;border-top:1px solid var(--border);margin:4rem 0}
 
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
@@ -82,11 +101,12 @@ h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-hei
 footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-between;align-items:center;color:var(--muted2);font-size:.78rem;flex-wrap:wrap;gap:.75rem}
 
 @media(max-width:768px){
-  .photo-grid.cols-3,.photo-grid.cols-4{grid-template-columns:repeat(2,1fr)}
+  .fun-grid{grid-template-columns:1fr}
+  .photo-grid.g3{grid-template-columns:repeat(2,1fr)}
   .nav-links{display:none}
 }
 @media(max-width:480px){
-  .photo-grid.cols-2,.photo-grid.cols-3,.photo-grid.cols-4{grid-template-columns:1fr}
+  .photo-grid.g2,.photo-grid.g3{grid-template-columns:1fr}
   #cursor,#cursor-ring{display:none}
 }
 </style>
@@ -103,7 +123,7 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
     <li><a href="index.html#experience">Experience</a></li>
     <li><a href="index.html#skills">Skills</a></li>
     <li><a href="projects.html">Projects</a></li>
-    <li><a href="interests.html" class="active">Interests</a></li>
+    <li><a href="interests.html" class="active">Community</a></li>
     <li><a href="index.html#education">Education</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
@@ -112,97 +132,142 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
 
 <div class="page-hero reveal">
   <a href="index.html" class="back-link">← Back home</a>
-  <div class="section-tag">Interests</div>
-  <h1>Beyond the data</h1>
-  <p class="page-sub">The things that keep me curious, grounded, and inspired outside of work.</p>
+  <div class="section-tag">Community & Beyond</div>
+  <h1>More than my job title</h1>
+  <p class="page-sub">Women in tech, hackathons, food, travel, and everything in between.</p>
 </div>
 
 <div class="content">
 
-  <!-- Healthcare & Data -->
-  <div class="interest-block reveal">
-    <div class="block-label">Passion area</div>
-    <div class="block-title">Healthcare & Data</div>
+  <!-- Women in Tech -->
+  <div class="reveal">
+    <div class="block-label">Passion</div>
+    <div class="block-title">Women in Tech</div>
     <div class="block-text">
-      <p>I'm deeply interested in how data can transform healthcare — from improving diagnostic accuracy to reducing administrative burden to surfacing patterns that save lives. The intersection of health systems and data engineering feels like one of the most meaningful places I can apply my skills.</p>
-      <p>I follow research in clinical AI, health data interoperability (FHIR, HL7), and how large-scale data infrastructure can support better population health decisions. It's a space I'd love to work in one day.</p>
+      <p>I care a lot about making space for women in tech — not just as an idea but as something I've actively built and shown up for. From running a chapter to founding a hackathon to being part of initiatives at work, it's a thread that runs through everything I do.</p>
     </div>
-    <div class="interest-tags">
-      <span class="itag">Clinical AI</span>
-      <span class="itag">Health Data</span>
-      <span class="itag">FHIR / HL7</span>
-      <span class="itag">Population Health</span>
-      <span class="itag">Health Equity</span>
+  </div>
+
+  <div class="initiatives-grid reveal">
+
+    <div class="initiative-card">
+      <div class="initiative-header">
+        <div class="initiative-icon">👩‍💻</div>
+        <div class="initiative-meta">
+          <div class="initiative-title">Girls Who Code at GSU</div>
+          <div class="initiative-role">President · 2 years</div>
+        </div>
+      </div>
+      <div class="initiative-desc">Led the Girls Who Code chapter at Georgia State University for two years — running events, building community, and creating a space where women in CS could find each other, grow, and thrive.</div>
+      <div>
+        <a href="https://bit.ly/3T63FP6" target="_blank" rel="noopener" class="initiative-link">Read the blog ↗</a>
+      </div>
+      <div class="itags"><span class="itag">Leadership</span><span class="itag">Community Building</span><span class="itag">Mentorship</span></div>
+    </div>
+
+    <div class="initiative-card">
+      <div class="initiative-header">
+        <div class="initiative-icon">⚡</div>
+        <div class="initiative-meta">
+          <div class="initiative-title">HackHers</div>
+          <div class="initiative-role">Founder · GSU's first all-female hackathon</div>
+        </div>
+      </div>
+      <div class="initiative-desc">Founded HackHers — GSU's first ever all-female hackathon. Built it from scratch: the concept, the logistics, the sponsors, the energy. Creating that kind of room for women to build and compete felt important, and I'm proud it happened.</div>
+      <div>
+        <a href="https://www.linkedin.com/company/hackhers-gwc-at-gsu/posts/?feedView=all" target="_blank" rel="noopener" class="initiative-link">View on LinkedIn ↗</a>
+      </div>
+      <div class="itags"><span class="itag">Founder</span><span class="itag">Hackathon</span><span class="itag">Event Organizing</span></div>
+    </div>
+
+    <div class="initiative-card">
+      <div class="initiative-header">
+        <div class="initiative-icon">🤝</div>
+        <div class="initiative-meta">
+          <div class="initiative-title">Women in AI & Data at EY</div>
+          <div class="initiative-role">Member · Ernst & Young</div>
+        </div>
+      </div>
+      <div class="initiative-desc">Part of the Women in AI & Data community at EY — a group focused on advancing women in the data and AI space within the firm and the broader industry.</div>
+      <div class="itags"><span class="itag">EY</span><span class="itag">AI & Data</span><span class="itag">Community</span></div>
+    </div>
+
+  </div>
+
+  <!-- Photo grid for women in tech moments — add your photos here -->
+  <div class="photo-grid g3 reveal" style="margin-top:1.5rem">
+    <div class="photo-slot land">
+      <!-- Replace with: <img src="photos/gwc.jpg" alt="Girls Who Code"> -->
+      <div class="ph"><span class="ph-icon">🖼️</span>Add a photo</div>
+    </div>
+    <div class="photo-slot land">
+      <div class="ph"><span class="ph-icon">🖼️</span>Add a photo</div>
+    </div>
+    <div class="photo-slot land">
+      <div class="ph"><span class="ph-icon">🖼️</span>Add a photo</div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- Add your photos here — replace placeholder slots -->
-  <div class="interest-block reveal">
-    <div class="block-label">Life outside work</div>
-    <div class="block-title">Add your photos here</div>
+  <!-- For Fun -->
+  <div class="reveal">
+    <div class="block-label">For fun</div>
+    <div class="block-title">Outside of work</div>
     <div class="block-text">
-      <p>Replace the placeholder slots below with your own photos — travel, hobbies, friends, food, anything that shows who you are outside of work. Just drop your image files into the portfolio folder and update the <code>src</code> on each <code>&lt;img&gt;</code> tag.</p>
-    </div>
-
-    <div class="photo-grid cols-3">
-      <div class="photo-slot">
-        <!-- Replace with: <img src="photos/your-photo.jpg" alt="description"> -->
-        <div class="placeholder"><span class="placeholder-icon">🖼️</span>Add a photo</div>
-        <div class="photo-caption">Your caption here</div>
-      </div>
-      <div class="photo-slot tall">
-        <div class="placeholder"><span class="placeholder-icon">🖼️</span>Add a photo</div>
-        <div class="photo-caption">Your caption here</div>
-      </div>
-      <div class="photo-slot">
-        <div class="placeholder"><span class="placeholder-icon">🖼️</span>Add a photo</div>
-        <div class="photo-caption">Your caption here</div>
-      </div>
-    </div>
-    <div class="add-hint">Drop your images into the portfolio folder, then replace the placeholder divs with &lt;img src="photos/name.jpg"&gt;</div>
-  </div>
-
-  <hr class="divider"/>
-
-  <!-- Another interest block — customize freely -->
-  <div class="interest-block reveal">
-    <div class="block-label">Interest</div>
-    <div class="block-title">Add an interest here</div>
-    <div class="block-text">
-      <p>Tell me what you want to say here — travel, reading, fitness, cooking, a cause you care about — and I'll write the copy and layout for it. This page is a template ready for your content.</p>
-    </div>
-
-    <div class="photo-grid cols-4">
-      <div class="photo-slot square">
-        <div class="placeholder"><span class="placeholder-icon">🖼️</span>Photo</div>
-      </div>
-      <div class="photo-slot square">
-        <div class="placeholder"><span class="placeholder-icon">🖼️</span>Photo</div>
-      </div>
-      <div class="photo-slot square">
-        <div class="placeholder"><span class="placeholder-icon">🖼️</span>Photo</div>
-      </div>
-      <div class="photo-slot square">
-        <div class="placeholder"><span class="placeholder-icon">🖼️</span>Photo</div>
-      </div>
+      <p>I like food, a lot. I like traveling and learning about different cultures, mostly through what people eat. And I like reading — the kind that makes you think about the world differently.</p>
     </div>
   </div>
 
-  <hr class="divider"/>
+  <div class="fun-grid reveal">
 
-  <!-- Girls Who Code -->
-  <div class="interest-block reveal">
-    <div class="block-label">Community</div>
-    <div class="block-title">Girls Who Code</div>
-    <div class="block-text">
-      <p>Serving as President of Girls Who Code at Georgia State was one of the most formative experiences of my college years. Building community, running events, and helping other women find their footing in tech — it's work I care about and want to continue carrying forward.</p>
+    <div class="fun-card">
+      <div class="fun-icon">🍜</div>
+      <div class="fun-title">Food Blogging</div>
+      <div class="fun-desc">I review food occasionally — mostly in the 470 area (Atlanta) and New York. Nothing too serious, just honest takes on good (and sometimes bad) meals. If you want recommendations, I probably have some.</div>
+      <a href="https://www.instagram.com/470eats/" target="_blank" rel="noopener" class="fun-link">@470eats on Instagram ↗</a>
     </div>
-    <div class="interest-tags">
-      <span class="itag">Women in Tech</span>
-      <span class="itag">Community</span>
-      <span class="itag">Mentorship</span>
+
+    <div class="fun-card">
+      <div class="fun-icon">✈️</div>
+      <div class="fun-title">Travel & Culture</div>
+      <div class="fun-desc">I love traveling and learning about different cultures — the history, the food, the way people live. Every place I've visited has changed how I think about something. I'm always planning the next trip.</div>
+    </div>
+
+    <div class="fun-card">
+      <div class="fun-icon">📚</div>
+      <div class="fun-title">Reading</div>
+      <div class="fun-desc">I read a mix of non-fiction and fiction — mostly things that make me think about systems, people, and how the world works. Recommendations always welcome.</div>
+    </div>
+
+    <div class="fun-card">
+      <div class="fun-icon">🌍</div>
+      <div class="fun-title">Learning about cultures</div>
+      <div class="fun-desc">Fascinated by how different cultures approach the same problems in completely different ways. I learn a lot through food, conversation, and just paying attention when I'm somewhere new.</div>
+    </div>
+
+  </div>
+
+  <!-- Photo grid for fun moments -->
+  <div class="photo-grid g3 reveal" style="margin-top:1.5rem">
+    <div class="photo-slot sq">
+      <!-- Replace with: <img src="photos/food1.jpg" alt=""> -->
+      <div class="ph"><span class="ph-icon">🍽️</span>Food photo</div>
+    </div>
+    <div class="photo-slot sq">
+      <div class="ph"><span class="ph-icon">✈️</span>Travel photo</div>
+    </div>
+    <div class="photo-slot sq">
+      <div class="ph"><span class="ph-icon">📸</span>Add a photo</div>
+    </div>
+    <div class="photo-slot sq">
+      <div class="ph"><span class="ph-icon">🍜</span>Food photo</div>
+    </div>
+    <div class="photo-slot sq">
+      <div class="ph"><span class="ph-icon">🌍</span>Travel photo</div>
+    </div>
+    <div class="photo-slot sq">
+      <div class="ph"><span class="ph-icon">📸</span>Add a photo</div>
     </div>
   </div>
 
@@ -219,7 +284,7 @@ const ring=document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
 function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}animRing();
-document.querySelectorAll('a,.photo-slot').forEach(el=>{
+document.querySelectorAll('a,.initiative-card,.fun-card,.photo-slot').forEach(el=>{
   el.addEventListener('mouseenter',()=>{ring.style.width='48px';ring.style.height='48px';ring.style.borderColor='rgba(129,140,248,.7)'});
   el.addEventListener('mouseleave',()=>{ring.style.width='32px';ring.style.height='32px';ring.style.borderColor='rgba(129,140,248,.4)'});
 });

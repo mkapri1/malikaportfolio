@@ -101,7 +101,9 @@ h2.section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spaci
 
 /* ---------- ABOUT ---------- */
 #about{border-top:1px solid var(--border)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-grid{display:grid;grid-template-columns:auto 1fr 1fr;gap:3rem;align-items:start}
+.about-photo-col{display:flex;flex-direction:column;align-items:center;gap:1rem}
+.about-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;border:2px solid var(--border2);flex-shrink:0}
 .about-text{color:var(--muted);font-size:1rem;line-height:1.85}
 .about-text p+p{margin-top:1.1rem}
 .about-highlight{color:var(--accent2);font-weight:600}
@@ -206,6 +208,7 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
 /* ---------- MOBILE ---------- */
 @media(max-width:768px){
   .about-grid,.skills-layout,.edu-cert-grid{grid-template-columns:1fr;gap:2.5rem}
+  .about-photo{width:120px;height:120px}
   .skill-panel{position:static}
   .hero-stats{gap:1.5rem}
   .nav-links{display:none}
@@ -232,7 +235,7 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
     <li><a href="#experience" data-section="experience">Experience</a></li>
     <li><a href="#skills" data-section="skills">Skills</a></li>
     <li><a href="projects.html">Projects</a></li>
-    <li><a href="interests.html">Interests</a></li>
+    <li><a href="interests.html">Community</a></li>
     <li><a href="#education" data-section="education">Education</a></li>
     <li><a href="#contact" data-section="contact">Contact</a></li>
   </ul>
@@ -263,7 +266,7 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
       <span class="typed-wrapper"><span id="typed"></span></span>
     </p>
     <p class="hero-desc">
-      AI & Data Consultant at Ernst & Young — I build lakehouse architectures, production ML pipelines, and data systems that power decisions at scale.
+      AI & Data Consultant at Ernst & Young — building lakehouse architectures, ML pipelines, and data systems that power decisions at scale. Interested in roles in <span style="color:var(--accent2)">Solutions Engineering, Field Data Engineering, and AI & Data</span>.
     </p>
     <div class="hero-actions">
       <a href="#experience" class="btn btn-primary">View my work</a>
@@ -284,10 +287,13 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
       <h2 class="section-title">Hi, I'm Malika.</h2>
     </div>
     <div class="about-grid">
+      <div class="about-photo-col reveal-l">
+        <img src="malika.jpg" alt="Malika Kapri" class="about-photo"/>
+      </div>
       <div class="about-text reveal-l">
-        <p>I love anything <span class="about-highlight">data</span> — the way it tells stories, surfaces patterns, and drives decisions that actually matter. I'm drawn to the intersection of <span class="about-highlight">data, technology, and business</span>, and I get genuinely excited by problems that sit right at that crossroads.</p>
-        <p>I'm especially interested in <span class="about-highlight">healthcare</span> and how data can be used to improve outcomes, reduce inefficiency, and ultimately help people. Whether it's building a lakehouse architecture for a Fortune 500 or deploying an ML model from scratch, I care deeply about making the technical work translate into real-world impact.</p>
-        <p>I love solving hard technical problems — the kind where the solution isn't obvious, where you have to dig in, rethink assumptions, and design something that actually holds up at scale. Currently at <span class="about-highlight">Ernst & Young</span> in New York and pursuing my M.S. in CS at Georgia Tech, I'm always looking for the next challenge where data meets something that matters.</p>
+        <p>I love anything <span class="about-highlight">data</span> — the way it tells stories, surfaces patterns, and turns complexity into clarity. I'm drawn to the intersection of <span class="about-highlight">data, technology, and business</span>, and I get genuinely excited by problems that sit right at that crossroads.</p>
+        <p>Whether it's designing a lakehouse from scratch, debugging a 1B+ row pipeline, or translating a messy business requirement into something that actually ships — I love the technical depth and the human side equally. I care about making the work land.</p>
+        <p>Currently at <span class="about-highlight">Ernst & Young</span> in New York and pursuing my M.S. in CS at Georgia Tech. I'm especially interested in roles where I can bridge the gap between powerful technology and the people who use it — <span class="about-highlight">Solutions Engineering, Field Data Engineering, and AI & Data</span>.</p>
       </div>
       <div class="about-right reveal">
         <div class="impact-grid">
@@ -296,8 +302,8 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
             <div class="impact-desc">I bridge the gap between technical systems and real business decisions</div>
           </div>
           <div class="impact-card">
-            <div class="impact-num">Healthcare</div>
-            <div class="impact-desc">Passionate about using data to improve outcomes and reduce inefficiency in health</div>
+            <div class="impact-num">Solutions</div>
+            <div class="impact-desc">Interested in SE, FDE, and AI & Data roles — technical depth with a customer lens</div>
           </div>
           <div class="impact-card">
             <div class="impact-num">Scale</div>
@@ -569,8 +575,8 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
           <a href="tel:+14708150131" class="btn btn-ghost">+1 (470) 815-0131</a>
         </div>
         <div class="socials">
-          <a href="https://github.com/malikakapri" class="social-link" title="GitHub">GH</a>
-          <a href="https://linkedin.com/in/malikakapri" class="social-link" title="LinkedIn">in</a>
+          <a href="https://github.com/mkapri1" class="social-link" title="GitHub">GH</a>
+          <a href="https://www.linkedin.com/in/mk1008/" class="social-link" title="LinkedIn">in</a>
         </div>
       </div>
     </div>
