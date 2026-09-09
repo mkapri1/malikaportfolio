@@ -66,7 +66,7 @@ h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-hei
 .initiative-link:hover{border-color:var(--accent);background:var(--glow2);text-decoration:none}
 .initiative-link+.initiative-link{margin-left:.5rem}
 
-.initiatives-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;margin-top:2rem}
+.initiatives-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
 
 .itags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
 .itag{font-size:.75rem;padding:.25rem .7rem;background:var(--tag);border:1px solid var(--tag-border);border-radius:100px;color:var(--accent);font-weight:600}
@@ -94,6 +94,9 @@ h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-hei
 
 footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-between;align-items:center;color:var(--muted2);font-size:.78rem;flex-wrap:wrap;gap:.75rem}
 
+@media(max-width:900px){
+  .initiatives-grid{grid-template-columns:1fr}
+}
 @media(max-width:768px){
   .fun-grid{grid-template-columns:1fr}
   .nav-links{display:none}
@@ -151,10 +154,7 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
         </div>
       </div>
       <div class="initiative-desc">Led the Girls Who Code chapter at Georgia State University for two years — running events, building community, and creating a space where women in CS could find each other, grow, and thrive.</div>
-      <div>
-        <a href="https://bit.ly/3T63FP6" target="_blank" rel="noopener" class="initiative-link">Read the blog ↗</a>
-      </div>
-      <div class="itags"><span class="itag">Leadership</span><span class="itag">Community Building</span><span class="itag">Mentorship</span></div>
+      <a href="https://bit.ly/3T63FP6" target="_blank" rel="noopener" class="initiative-link">Read the blog ↗</a>
     </div>
 
     <div class="initiative-card">
@@ -166,10 +166,7 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
         </div>
       </div>
       <div class="initiative-desc">Founded HackHers — GSU's first ever all-female hackathon. Built it from scratch: the concept, the logistics, the sponsors, the energy. Creating that kind of room for women to build and compete felt important, and I'm proud it happened.</div>
-      <div>
-        <a href="https://www.linkedin.com/company/hackhers-gwc-at-gsu/posts/?feedView=all" target="_blank" rel="noopener" class="initiative-link">View on LinkedIn ↗</a>
-      </div>
-      <div class="itags"><span class="itag">Founder</span><span class="itag">Hackathon</span><span class="itag">Event Organizing</span></div>
+      <a href="https://www.linkedin.com/company/hackhers-gwc-at-gsu/posts/?feedView=all" target="_blank" rel="noopener" class="initiative-link">View on LinkedIn ↗</a>
     </div>
 
     <div class="initiative-card">
@@ -181,7 +178,6 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
         </div>
       </div>
       <div class="initiative-desc">Part of the Women in AI & Data community at EY — a group focused on advancing women in the data and AI space within the firm and the broader industry.</div>
-      <div class="itags"><span class="itag">EY</span><span class="itag">AI & Data</span><span class="itag">Community</span></div>
     </div>
 
   </div>
@@ -197,7 +193,26 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
     </div>
   </div>
 
-  <div class="fun-grid reveal">
+  <!-- Photos: single horizontal row -->
+  <div class="reveal" style="margin-top:1.5rem;display:flex;gap:1rem;overflow-x:auto;padding-bottom:.5rem;scrollbar-width:thin;scrollbar-color:var(--border2) transparent">
+    <div class="photo-slot" style="flex:0 0 220px;height:160px;border-radius:12px;overflow:hidden">
+      <img src="IMG_0799.jpeg" alt="Food from @470eats" style="width:100%;height:100%;object-fit:cover"/>
+    </div>
+    <div class="photo-slot" style="flex:0 0 220px;height:160px;border-radius:12px;overflow:hidden">
+      <img src="IMG_0498.JPG" alt="Hiking at Maroon Bells, Colorado" style="width:100%;height:100%;object-fit:cover"/>
+    </div>
+    <div class="photo-slot" style="flex:0 0 220px;height:160px;border-radius:12px;overflow:hidden">
+      <img src="IMG_0666.JPG" alt="Hiking by the lake" style="width:100%;height:100%;object-fit:cover"/>
+    </div>
+    <div class="photo-slot" style="flex:0 0 220px;height:160px;border-radius:12px;overflow:hidden">
+      <img src="S645891-R2-016-6A.jpg" alt="NYC skyline film" style="width:100%;height:100%;object-fit:cover"/>
+    </div>
+    <div class="photo-slot" style="flex:0 0 220px;height:160px;border-radius:12px;overflow:hidden">
+      <img src="IMG_8617.JPG" alt="Brooklyn Bridge" style="width:100%;height:100%;object-fit:cover"/>
+    </div>
+  </div>
+
+  <div class="fun-grid reveal" style="margin-top:2rem">
 
     <div class="fun-card">
       <div class="fun-icon">🍜</div>
@@ -224,25 +239,6 @@ footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);di
       <div class="fun-desc">Fascinated by how different cultures approach the same problems in completely different ways. I learn a lot through food, conversation, and just paying attention when I'm somewhere new.</div>
     </div>
 
-  </div>
-
-  <!-- Photos: single horizontal row -->
-  <div class="reveal" style="margin-top:1.5rem;display:flex;gap:1rem;overflow-x:auto;padding-bottom:.5rem;scrollbar-width:thin;scrollbar-color:var(--border2) transparent">
-    <div class="photo-slot" style="flex:0 0 220px;height:160px;border-radius:12px;overflow:hidden">
-      <img src="IMG_0799.jpeg" alt="Food from @470eats" style="width:100%;height:100%;object-fit:cover"/>
-    </div>
-    <div class="photo-slot" style="flex:0 0 220px;height:160px;border-radius:12px;overflow:hidden">
-      <img src="IMG_0498.JPG" alt="Hiking at Maroon Bells, Colorado" style="width:100%;height:100%;object-fit:cover"/>
-    </div>
-    <div class="photo-slot" style="flex:0 0 220px;height:160px;border-radius:12px;overflow:hidden">
-      <img src="IMG_0666.JPG" alt="Hiking by the lake" style="width:100%;height:100%;object-fit:cover"/>
-    </div>
-    <div class="photo-slot" style="flex:0 0 220px;height:160px;border-radius:12px;overflow:hidden">
-      <img src="S645891-R2-016-6A.jpg" alt="NYC skyline film" style="width:100%;height:100%;object-fit:cover"/>
-    </div>
-    <div class="photo-slot" style="flex:0 0 220px;height:160px;border-radius:12px;overflow:hidden">
-      <img src="IMG_8617.JPG" alt="Brooklyn Bridge" style="width:100%;height:100%;object-fit:cover"/>
-    </div>
   </div>
 
 </div>
